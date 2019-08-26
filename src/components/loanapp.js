@@ -6,20 +6,20 @@ import marching from '../images/PeopleMarchColor.png'
 const LoanApp = React.forwardRef((props, ref) => {
 
     const [email, setEmail] = useState('')
+    const thankYouMsg = 'Thanks for applying! Your loan application has opened in a new window.'
+    const [submitted, isSubmitted] = useState(false)
     const [disclaimers, toggleDisclaimers] = useState(false)
     const [programInfo, setProgramInfo] = useState({
-        programName: 'CORE Program',
+        programName: 'Full-Time UX/UI Design',
         active: { 
             program1: false,
             program2: false,
             program3: false,
-            program4: false,
-            program5: false,
-            program6: false,
+            program4: false
         }
     })
-    const [loanUrl, setLoanUrl] = useState(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // if multiple programs, set lenderCode to first program option
-    const formID = '84a22c21-7ecc-401e-a742-2bc6b7c068ad' // get form id for apply now
+    const [loanUrl, setLoanUrl] = useState(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKIHUXI1`) // if multiple programs, set lenderCode to first program option
+    const formID = 'd2dff6c0-4074-4b2c-8819-0604108f6e5e' // get form id for apply now
     const costOfLiving = true // set to false of cost of living is not available
     const multiplePrograms = true // set to false if there is only one program
     const onlinePrograms = false // set to true if there is at least one online/remote program offered
@@ -37,101 +37,63 @@ const LoanApp = React.forwardRef((props, ref) => {
         switch(programNumber) {
             case 1: // info should match default
                 setProgramInfo({
-                    programName: 'CORE Program', 
+                    programName: 'Full-Time UX/UI Design', 
                     active: {
                         program1: !programInfo.active.program1, 
                         program2: false, 
                         program3: false,
-                        program4: false,
-                        program5: false,
-                        program6: false,
+                        program4: false
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKIHUXI19`) // update lenderCode with market segment code from LP
                 break;
             case 2:
                 setProgramInfo({
-                    programName: 'CORE Program + Cert', 
+                    programName: 'Full-Time Web Development', 
                     active: {
                         program1: false, 
                         program2: !programInfo.active.program2, 
                         program3: false,
-                        program4: false,
-                        program5: false,
-                        program6: false,
+                        program4: false
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCOCE17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFIHFT19`) // update lenderCode with market segment code from LP
                 break;
             case 3:
                 setProgramInfo({
-                    programName: 'PATH Program', 
+                    programName: 'Part-Time UX/UI Design', 
                     active: {
                         program1: false, 
                         program2: false, 
                         program3: !programInfo.active.program3,
-                        program4: false,
-                        program5: false,
-                        program6: false,
+                        program4: false
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCOEV17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKIHUXPT19`) // update lenderCode with market segment code from LP
                 break;
             case 4:
                 setProgramInfo({
-                    programName: 'PATH Program + Cert', 
+                    programName: 'Part-Time Web Development', 
                     active: {
                         program1: false, 
                         program2: false, 
                         program3: false,
-                        program4: !programInfo.active.program4,
-                        program5: false,
-                        program6: false,
+                        program4: !programInfo.active.program4
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCCEV17`) // update lenderCode with market segment code from LP
-                break;
-            case 5:
-                setProgramInfo({
-                    programName: 'HUNT Program', 
-                    active: {
-                        program1: false, 
-                        program2: false, 
-                        program3: false,
-                        program4: false,
-                        program5: !programInfo.active.program5,
-                        program6: false,
-                    }
-                })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSHUNT17`) // update lenderCode with market segment code from LP
-                break;
-            case 6:
-                setProgramInfo({
-                    programName: 'HUNT Program + Cert', 
-                    active: {
-                        program1: false, 
-                        program2: false, 
-                        program3: false,
-                        program4: false,
-                        program5: false,
-                        program6: !programInfo.active.program6,
-                    }
-                })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSHUCE17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SFIHPT19`) // update lenderCode with market segment code from LP
                 break;
             default: // info should match case 1
                 setProgramInfo({ 
-                    programName: 'CORE Program', 
+                    programName: 'Full-Time UX/UI Design', 
                     active: {
                         program1: !programInfo.active.program1, 
                         program2: false, 
                         program3: false,
                         program4: false,
-                        program5: false,
-                        program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`)
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKIHUXI19`)
                 break;
         }
     }
@@ -179,7 +141,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             "value": "Student"
             },
             {
-            "name": "select_a_secureset_program", // update school name to match form field on Hubspot
+            "name": "select_a_ironhack_program", // update school name to match form field on Hubspot
             "value": `${programInfo.programName}`
             },
             {
@@ -193,7 +155,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             {
             "name": "clicked_begin_loan_application_bla",
             "value": "BLA Click"
-            },
+            }
         ],
         "context": {
             "hutk": hsCookie.hubspotutk, // include this parameter and set it to the hubspotutk cookie value to enable cookie tracking on your submission
@@ -209,13 +171,17 @@ const LoanApp = React.forwardRef((props, ref) => {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(res => res.json())
+        })
+        // .then(res => res.json())
+        .then(res => res.text())
+        .then(text => console.log(text))
         .then(response => console.log('success', response))
         .catch(error => console.log('error: ', error))
         
         trackGoogleAnalyticsEvent()
         trackFacebookPixel()
         redirectLoanApp()
+        isSubmitted(true)
     }
 
     return (
@@ -226,20 +192,18 @@ const LoanApp = React.forwardRef((props, ref) => {
                 <img className="w-auto" src={marching} alt="People marching and carrying flags" loading="lazy"/>
             </div>
             {/* update form fields as necessary */}
-            <form className="SecureSet_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
+            <form className="ironhack_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email address</label>
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 {multiplePrograms && 
-                    <div className="w-full lg:w-1/2 px-8 lg:px-0">
-                        <p className="text-center text-sm">Select a {props.schoolName} program</p>
+                    <div className="w-full px-8 lg:px-0 mb-2">
+                        <p className="text-center text-sm">Select your {props.schoolName} program</p>
                         
                         {/* WHEN ADDING AND REMOVING PROGRAMS, PAY ATTENTION TO THE NUMBER AT THE END OF programInfo.active and handleProgramSelect */}
-                        <p className={programInfo.active.program1 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(1)}>CORE Program</p>
-                        <p className={programInfo.active.program2 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(2)}>CORE Program + Cert</p>
-                        <p className={programInfo.active.program3 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(3)}>PATH Program</p>
-                        <p className={programInfo.active.program4 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(4)}>PATH Program + Cert</p>
-                        <p className={programInfo.active.program5 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(5)}>HUNT Program</p>
-                        <p className={programInfo.active.program6 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(6)}>HUNT Program + Cert</p>
+                        <p className={programInfo.active.program1 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(1)}>Full-Time UX/UI Design</p>
+                        <p className={programInfo.active.program2 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(2)}>Full-Time Web Development</p>
+                        <p className={programInfo.active.program3 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(3)}>Part-Time UX/UI Design</p>
+                        <p className={programInfo.active.program4 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(4)}>Part-Time Web Development</p>
                     </div>
                 }
                 <div className="hidden">
@@ -249,8 +213,8 @@ const LoanApp = React.forwardRef((props, ref) => {
                     <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted" readOnly/>
                     <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" readOnly/>
                 </div>
-                <input className="w-40 mt-5" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>
-                <p className="mt-5 text-xs italic mb-0 px-8 text-center">Please note: clicking Apply Now will open your loan application in a new tab</p>
+                {submitted ? thankYouMsg : <input className="w-40" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>}
+                {!submitted && <p className="mt-3 text-xs italic">Please note: clicking Apply Now will open your loan application in a new tab</p>}
             </form>
             {onlinePrograms && 
                 <p className="px-8">

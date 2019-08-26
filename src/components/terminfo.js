@@ -5,43 +5,29 @@ import ImmRepaymentTerms from './immrepaymentterms'
 
 // update with school-specific info
 const schoolInfo = {
-    interestRate36: '9.49%',
-    interestRate60: '11.46%',
+    interestRate36: '8.99%',
+    interestRate60: '',
     interestOnly: [{
-        programName: 'CORE Program with/without the certification and the HUNT Program with the certification',
-        APR36: '11.52%',
-        financeCharge36: '$2,567.11',
-        IOPayment36: '$82.25',
-        FullMonthlyPayment36: '$333.09',
+        programName: 'Full-Time Web Development or Full-Time UX/UI Design Bootcamps',
+        APR36: '11.25%',
+        financeCharge36: '$2,215.73',
+        IOPayment36: '$77.91',
+        FullMonthlyPayment36: '$330.67',
         APR60: '12.92%',
         financeCharge60: '$4,406.10',
         IOPayment60: '$99.32',
         FullMonthlyPayment60: '$228.51',
         LoanExampleAmt: '$10,000',
         LoanExampleOFeeAmt: '$400',
-        LoanExampleAmtPlusOFee: '$10,4000',
-        programLength: '5' // program length in months
-    },
-    {
-        programName: 'HUNT Program without the certification',
-        APR36: '11.67%',
-        financeCharge36: '$2,402.62',
-        IOPayment36: '$82.25',
-        FullMonthlyPayment36: '$333.09',
-        APR60: '12.99%',
-        financeCharge60: '$4,207.46',
-        IOPayment60: '$99.32',
-        FullMonthlyPayment60: '$228.51',
-        LoanExampleAmt: '$10,000',
-        LoanExampleOFeeAmt: '$400',
         LoanExampleAmtPlusOFee: '$10,400',
-        programLength: '3' // program length in months
-    }],
+        programLength: '2' // program length in months
+    },
+],
     immediateRepayment: [{ // set values to empty strings if no IR option is available
-        programName: 'PATH Program with/without the certification',
-        APR36: '12.20%',
-        financeCharge36: '$1,991.39',
-        FullMonthlyPayment36: '$333.09',
+        programName: 'Part-Time Web Development or Part-Time UX/UI Design Bootcamps',
+        APR36: '11.69%',
+        financeCharge36: '$1,904.08',
+        FullMonthlyPayment36: '$330.67',
         APR60: '13.19%',
         financeCharge60: '$3,710.86',
         FullMonthlyPayment60: '$228.51',
@@ -50,7 +36,7 @@ const schoolInfo = {
         LoanExampleAmtPlusOFee: '$10,400',
     }]
 }
-const multipleLoanLengths = true // true if both 36 and 60 month options are available
+const multipleLoanLengths = false // true if both 36 and 60 month options are available
 const multipleLoanTypes = true // true if both IR and IO are available
 
 const TermInfo = () => (
@@ -62,9 +48,9 @@ const TermInfo = () => (
                 multipleLoanTypes={multipleLoanTypes}
                 interestRate36={schoolInfo.interestRate36}
                 interestRate60={schoolInfo.interestRate60}
-                IOAPR36={schoolInfo.interestOnly.APR36}
+                IOAPR36={schoolInfo.interestOnly[0].APR36}
                 IOAPR60={schoolInfo.interestOnly.APR60}
-                IRAPR36={schoolInfo.immediateRepayment.APR36}
+                IRAPR36={schoolInfo.immediateRepayment[0].APR36}
                 IRAPR60={schoolInfo.immediateRepayment.APR60}
             />
 

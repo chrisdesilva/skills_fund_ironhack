@@ -7,7 +7,7 @@ const LoanCalculator = () => {
     const placeholder = '$10,000'
     const [loanAmount, setLoanAmount] = useState(10000)
     const minLoanAmt = 2000
-    const interestRate36 = 9.49
+    const interestRate36 = 8.99
     const interestRate60 = 11.46
     const origFee = 0.04
     const multiPrograms = true // only true if there are multiple programs
@@ -15,13 +15,12 @@ const LoanCalculator = () => {
     const [monthlyPayment, setMonthlyPayment] = useState({ payment36: null, payment60: null })
     const [loanType, setLoanType] = useState('0') // default to 0 for interest-only, 1 for immediate repayment
     const [loanInformation, setLoanInformation] = useState({ 
-        maxLoanAmt: 37400,
+        maxLoanAmt: 15500,
         loanTerm36: true, // only true if 36 month option is available
-        loanTerm60: true, // only true if 60 month option is available
-        k: 5, // (program length in weeks / 4) + 2 -- round program length down to nearest number divisible by 4 (ie. 27 week program rounds down to 24, 24 / 4 + 6 = 12, k = 12)
+        loanTerm60: false, // only true if 60 month option is available
+        k: 4, // (program length in weeks / 4) + 2 -- round program length down to nearest number divisible by 4 (ie. 27 week program rounds down to 24, 24 / 4 + 6 = 12, k = 12)
         '0': { // interest-only
-            apr36: 11.52, 
-            apr60: 12.92
+            apr36: 11.25
         },
         '1': null
     })
@@ -56,56 +55,39 @@ const LoanCalculator = () => {
     const selectProgram = e => {
         let program = e.target.value
         switch(program) {
-            case "CORE Program": // use this info for default case at bottom
+            case "Full-Time Web Development or UX/UI Design": // use this info for default case at bottom
                 setLoanInformation({
-                    maxLoanAmt: 25500,
+                    maxLoanAmt: 15500,
                     loanTerm36: true,
-                    loanTerm60: true,
+                    loanTerm60: false,
                     '0': { 
-                        k: 7, 
-                        apr36: 11.52, 
-                        apr60: 12.92
+                        k: 4, 
+                        apr36: 11.25
                     },
                     '1': null
                 })
                 setLoanType('0')
                 break;
-            case "HUNT Program": 
+            case "Part-Time Web Development or UX/UI Design": 
                 setLoanInformation({
-                    maxLoanAmt: 25400,
+                    maxLoanAmt: 11000,
                     loanTerm36: true,
-                    loanTerm60: true,
-                    '0': { 
-                        k: 5, 
-                        apr36: 11.67, 
-                        apr60: 12.99
-                    },
-                    '1': null
-                })
-                setLoanType('0')
-                break;
-            case "PATH Program": 
-                setLoanInformation({
-                    maxLoanAmt: 23400,
-                    loanTerm36: true,
-                    loanTerm60: true,
+                    loanTerm60: false,
                     '0': null,
                     '1': {
-                        apr36: 12.20,
-                        apr60: 13.19
+                        apr36: 11.69
                     }
                 })
                 setLoanType('1')
                 break;
             default: // info below needs to match info from first program
                 setLoanInformation({
-                    maxLoanAmt: 25500,
+                    maxLoanAmt: 15500,
                     loanTerm36: true,
-                    loanTerm60: true,
+                    loanTerm60: false,
                     '0': { 
-                        k: 7, 
-                        apr36: 11.52, 
-                        apr60: 12.92
+                        k: 4, 
+                        apr36: 11.25
                     },
                     '1': null
                 })
@@ -120,7 +102,7 @@ const LoanCalculator = () => {
                 <h3 className="text-center">Calculate Your Monthly Payments</h3>
 
                 {/* UPDATE LOAN AMOUNTS AND COST OF LIVING BY PROGRAM BELOW */}
-                <p className="text-center">Choose the loan amount that works best for you. Borrow up to $20,000 for the CORE Program tuition, $7,400 for optional certification, and $10,000 for cost of living. Borrow up to $12,000 for the HUNT Program tuition, $7,400 for optional certification, and $6,000 for cost of living. Borrow up to $16,000 for the PATH Program tuition and $7,400 for optional certification.</p>
+                <p className="text-center">Choose the loan amount that works best for you. Borrow up to $11,500 for Full-Time Web Development or Full-Time UX/UI Design tuition and $5,000 for cost of living. Borrow up to $12,000 for the Part-Time Web Development or Part-Time UX/UI Design tuition.</p>
                 <LoanCalcPaymentTable />
 
                 {/* ADD OR REMOVE PROGRAMS BELOW */}
@@ -128,9 +110,8 @@ const LoanCalculator = () => {
                     <div className="flex flex-col justify-center w-full md:w-1/3">
                         <label className="text-xs text-center">Select a Program:</label>
                         <select className="rounded border-2 border-primary mb-5 bg-white text-primary text-center" onChange={selectProgram}>
-                            <option value="CORE Program">CORE Program</option>
-                            <option value="HUNT Program">HUNT Program</option>
-                            <option value="PATH Program">PATH Program</option>
+                            <option value="Full-Time Web Development or UX/UI Design">Full-Time Web Development or UX/UI Design</option>
+                            <option value="Part-Time Web Development or UX/UI Design">Part-Time Web Development or UX/UI Design</option>
                         </select>
                     </div>
                 }

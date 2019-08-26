@@ -9,29 +9,19 @@ const LoanCalcPaymentTable = () => (
                     <th className="text-center">Program</th>
                     <th className="text-center">Tuition</th>
                     <th className="text-center">Cost of Living</th>
-                    <th className="text-center">Optional Certification</th>
                     <th className="text-center">Max Total</th>
                 </tr>
                 <tr>
-                    <td className="text-center">CORE Program</td>
-                    <td className="text-center">$20,000</td>
-                    <td className="text-center">$10,000</td>
-                    <td className="text-center">$7,400</td>
-                    <td className="text-center">$37,400</td>
+                    <td className="text-center">Full-Time Web Development & Full-Time UX/UI Design Bootcamps</td>
+                    <td className="text-center">$11,500 (includes $1,000 deposit)</td>
+                    <td className="text-center">$5,000</td>
+                    <td className="text-center">$15,500</td>
                 </tr>
                 <tr>
-                    <td className="text-center">HUNT Program</td>
-                    <td className="text-center">$12,000</td>
-                    <td className="text-center">$6,000</td>
-                    <td className="text-center">$7,400</td>
-                    <td className="text-center">$25,400</td>
-                </tr>
-                <tr>
-                    <td className="text-center">PATH Program</td>
-                    <td className="text-center">$16,000</td>
-                    <td className="text-center">--</td>
-                    <td className="text-center">$7,400</td>
-                    <td className="text-center">$23,400</td>
+                    <td className="text-center">Part-Time Web Development & Part-Time UX/UI Design Bootcamps</td>
+                    <td className="text-center">$12,000 (includes $1,000 deposit)</td>
+                    <td className="text-center">N/A</td>
+                    <td className="text-center">$11,000</td>
                 </tr>
             </tbody>
         </table>
@@ -40,49 +30,28 @@ const LoanCalcPaymentTable = () => (
         <table className="lg:hidden">
             <tbody>
                 <tr>
-                    <th className="text-center">CORE Program</th>
+                    <th className="text-center">Full-Time Web Development & Full-Time UX/UI Design Bootcamps</th>
                 </tr>
                 <tr>
-                    <td className="text-center">Tuition: $20,000</td>
+                    <td className="text-center">Tuition: $11,500 (includes $1,000 deposit)</td>
                 </tr>
                 <tr>
-                    <td className="text-center">Cost of Living: $10,000</td>
+                    <td className="text-center">Cost of Living: $5,000</td>
                 </tr>
                 <tr>
-                    <td className="text-center">Optional Certification: $7,400</td>
+                    <td className="text-center">Max Total: $15,500</td>
                 </tr>
                 <tr>
-                    <td className="text-center">Max Total: $37,400</td>
+                    <th className="text-center">Part-Time Web Development & Part-Time UX/UI Design Bootcamps</th>
                 </tr>
                 <tr>
-                    <th className="text-center">HUNT Program</th>
+                    <td className="text-center">Tuition: $12,000 (includes $1,000 deposit)</td>
                 </tr>
                 <tr>
-                    <td className="text-center">Tuition: $12,000</td>
+                    <td className="text-center">Cost of Living: N/A</td>
                 </tr>
                 <tr>
-                    <td className="text-center">Cost of Living: $6,000</td>
-                </tr>
-                <tr>
-                    <td className="text-center">Optional Certification: $7,400</td>
-                </tr>
-                <tr>
-                    <td className="text-center">Max Total: $25,400</td>
-                </tr>
-                <tr>
-                    <th className="text-center">PATH Program</th>
-                </tr>
-                <tr>
-                    <td className="text-center">Tuition: $16,000</td>
-                </tr>
-                <tr>
-                    <td className="text-center">Cost of Living: --</td>
-                </tr>
-                <tr>
-                    <td className="text-center">Optional Certification: $7,400</td>
-                </tr>
-                <tr>
-                    <td className="text-center">Max Total: $23,400</td>
+                    <td className="text-center">Max Total: $11,000</td>
                 </tr>
             </tbody>
         </table>

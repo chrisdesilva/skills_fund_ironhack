@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './button'
 
 const costOfLiving = true // true if at least one program offers cost of living
-const schoolName = 'SecureSet'
+const schoolName = 'Ironhack'
 
 const ThreeSteps = React.forwardRef((props, ref) => {
     return (
@@ -20,7 +20,7 @@ const ThreeSteps = React.forwardRef((props, ref) => {
                 <div id="stepCard2" className="stepCards flex flex-col items-center m-2 lg:w-1/3 p-4 rounded shadow-2xl bg-white border-primary border-t-8">
                     <p className="rounded-full h-10 w-10 flex items-center justify-center border border-primary">2</p>
                     <h3 className="uppercase">select your program</h3>
-                    <p className="text-xl">Choose between the CORE, HUNT, and PATH programs.</p>
+                    <p>Choose between the Full-Time Web Development, Full-Time UX/UI Design, Part-Time Web Development, or Part-Time UX/UI Design programs.</p>
                 </div>
                 {/* ^^^ Update this section as needed ^^^ */}
 

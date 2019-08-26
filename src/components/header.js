@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import schoolLogo from "../images/secureset_logo.png" // add school logo to images folder and import here
+import schoolLogo from "../images/ironhack_logo.png" // add school logo to images folder and import here
 import skillsFund from "../images/skillsFund_logo.png"
 
 // update school-specific info
@@ -18,20 +18,24 @@ const Header = ({ siteTitle }) => (
             href={schoolInfo.schoolUrl}
             target="_blank"
             rel="noreferrer noopener"
+            className="w-1/2 lg:w-1/3 flex justify-center"
           >
             <img
               src={schoolLogo} 
               alt={schoolInfo.schoolName}
-              className="h-10"
+              className="h-16"
               loading="lazy"
               id="schoolLogo"
             />
           </a>
-          <h3 className="font-light mb-0 hidden lg:block">{schoolInfo.schoolName} tuition made easy</h3>
+          <div className="w-1/3 flex justify-center">
+            <h3 className="font-light mb-0 hidden lg:block">{schoolInfo.schoolName} tuition made easy</h3>
+          </div>
           <a
             href="https://skills.fund/"
             target="_blank"
             rel="noreferrer noopener"
+            className="w-1/2 lg:w-1/3 flex justify-center"
           >
             <img
               src={skillsFund} 
