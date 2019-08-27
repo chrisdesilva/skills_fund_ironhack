@@ -9,7 +9,8 @@ ReactGA.initialize(trackingId, {
   titleCase: false,
   gaOptions: {
     siteSpeedSampleRate: 100
-  }
+  },
+  standardImplementation: true
 })
 
 const netlifyFormName = 'ironhack_contact'
