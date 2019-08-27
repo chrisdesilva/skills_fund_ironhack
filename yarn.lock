@@ -5011,6 +5011,14 @@ gatsby-plugin-google-analytics@^2.1.11:
   dependencies:
     "@babel/runtime" "^7.5.5"
 
+gatsby-plugin-google-gtag@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-1.1.6.tgz#a23d45a07b3abeeb6fb267aa8e3879cc7fddd57e"
+  integrity sha512-KTlZ6qEywstPaYZAM7TbpUQYwJv/dQydIc1uYlksbfa1yH9Rlw64W43z5Jx88mqeDa8x6VxMiNJbnK0fs0w7Lw==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    minimatch "^3.0.4"
+
 gatsby-plugin-manifest@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.2.1.tgz#89d23587bfddbf3ce606fc353555d372cfc7d432"

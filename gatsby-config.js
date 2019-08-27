@@ -19,9 +19,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "UA-68312423-42"  
+        trackingIds: ["UA-68312423-42"]  
       },
     },
     `gatsby-transformer-sharp`,
