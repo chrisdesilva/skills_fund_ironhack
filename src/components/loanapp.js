@@ -235,7 +235,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                     <p><strong>While in the application, please note:</strong></p>
                     <p>1. DO NOT use the browser Back button. Using the browser Back button may cause invalid information and delay the processing of your loan.</p>
                     <p>2. Your application will not be complete until it has been signed and submitted along with any required documentation.</p>
-                    <p>3. You will need the address and phone number of 3 references to complete your application, including one relative not living with you. Others may be friends, employers, etc.</p>
+                    <p className="mb-0">3. You will need the address and phone number of 3 references to complete your application, including one relative not living with you. Others may be friends, employers, etc.</p>
                 </div>
             </Collapse>
             </div>
