@@ -3,8 +3,8 @@ import React from 'react'
 // no updates necessary
 
 const Eligibility = () => (
-    <div className="text-center border-2 border-gray-300 shadow-xl rounded-lg m-2 lg:m-10 p-8">
-        <h2 className="mt-4">Qualifying for Skills Fund Financing</h2>
+    <div className="text-center mx-2 lg:mx-10 p-8 shadow rounded">
+        <h2 className="py-4 text-center">Qualifying for Skills Fund Financing</h2>
         <p>Our underwriting reflects an investment in your future success. Skills Fund does not use current income nor employment history in your credit decision, and you may qualify for a Skills Fund loan if you meet the basic underwriting criteria, including:</p>
         <ul>
             <li><strong>You are a U.S. citizen or permanent resident (Green Card holder)</strong></li>

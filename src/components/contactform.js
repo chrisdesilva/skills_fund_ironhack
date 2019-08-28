@@ -51,8 +51,8 @@ class ContactForm extends React.Component {
 
     render() {
         return (
-            <div className="border-2 border-gray-300 shadow-xl rounded-lg m-2 lg:m-10 p-8">
-                <h2 className="mt-4 text-center">Additional Questions</h2>
+            <div className="text-center mx-2 lg:mx-10 p-8 shadow rounded">
+                <h2 className="py-4 text-center">Additional Questions</h2>
                 <p>We're here to help for every step of your journey. Whether you have questions around financing your education, or simply about your loan application, please submit the form below, check out our <a href="https://skills.fund/frequently-asked-questions" target="_blank" rel="noreferrer noopener" className="text-primary">Financing FAQs</a>, or browse the resources on <a href="https://skills.fund/frequently-asked-questions" target="_blank" rel="noreferrer noopener" className="text-primary">our blog</a>. Thank you!</p>
                 <form className="text-center" name={this.props.formName} method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
                     <input type="hidden" name="form-name" value={this.props.formName} />
@@ -87,7 +87,7 @@ class ContactForm extends React.Component {
                         <label className="block text-gray-700 text-sm font-bold" htmlFor="comments">Question and/or Comment</label>
                         <textarea onChange={this.handleChange} value={this.state.comments} name="comments" className="shadow appearance-none border md:w-1/3 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter any questions or comments here" required/>
                     </div>
-                    <button type="submit" className="uppercase bg-primary py-2 px-4 rounded-full shadow-lg text-white">Send Me More Info</button>
+                    <button type="submit" className="opacityApply bg-primary p-3 lg:mb-0 lg:ml-4 w-40 rounded-full shadow-lg text-white">Send Me More Info</button>
                 </form>
                 {this.state.thankyou && <p className="text-center text-primary">Thanks for getting in touch! We'll reach out with more information soon.</p>}
             </div> 

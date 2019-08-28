@@ -7,13 +7,14 @@ import LeadContent from '../components/leadcontent'
 import ThreeSteps from '../components/threesteps'
 import LoanCalculator from '../components/loancalculator'
 import InfoButtonContainer from '../components/infobuttoncontainer'
+import LoanApp from './loanapp'
+import LeadCaptureForm from './leadcaptureform'
+import ApplyFooter from './applyFooter'
+import { UnmountClosed as Collapse } from 'react-collapse'
 import TermInfo from './terminfo'
 import FAQ from './faq'
 import Eligibility from './eligibility'
 import ContactForm from './contactform'
-import LoanApp from './loanapp'
-import LeadCaptureForm from './leadcaptureform'
-import ApplyFooter from './applyFooter';
 
 
 class Homepage extends React.Component {
@@ -126,15 +127,23 @@ class Homepage extends React.Component {
               schoolName={this.props.schoolName}
             />
             <InfoButtonContainer 
-              info={this.activateMoreInfo}
+              terms={this.activateMoreInfo}
               faq={this.activateFAQ}
               eligibility={this.activateEligibility}
-              contact={this.activateContact} 
+              contact={this.activateContact}
             />
-            {this.state.termInfo && <TermInfo />}
-            {this.state.faq && <FAQ />}
-            {this.state.eligibility && <Eligibility />}
-            {this.state.contact && <ContactForm formName={this.props.formName}/>}
+            <Collapse isOpened={this.state.termInfo} springConfig={{stiffness: 150, damping: 40}}>
+                <TermInfo />
+            </Collapse>
+            <Collapse isOpened={this.state.faq} springConfig={{stiffness: 150, damping: 40}}>
+                <FAQ />
+            </Collapse>
+            <Collapse isOpened={this.state.eligibility} springConfig={{stiffness: 150, damping: 40}}>
+                <Eligibility />
+            </Collapse>
+            <Collapse isOpened={this.state.contact} springConfig={{stiffness: 150, damping: 40}}>
+                <ContactForm formName={this.props.formName}/>
+            </Collapse>
             <ApplyFooter
               onClick={this.scrollToApply3}
             />
