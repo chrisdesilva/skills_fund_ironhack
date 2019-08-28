@@ -6,8 +6,8 @@ import skillsFund from "../images/skillsFund_logo.png"
 // update school-specific info
 
 const schoolInfo = {
-  schoolName: 'SecureSet Academy',
-  schoolUrl: 'https://secureset.com/' // update with url of school's website
+  schoolName: 'Ironhack',
+  schoolUrl: 'https://www.ironhack.com/en' // update with url of school's website
 }
 
 const Header = ({ siteTitle }) => (
