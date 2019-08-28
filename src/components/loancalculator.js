@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import LoanCalcPaymentTable from './loancalcpaymenttable';
+import React, { useState } from 'react'
+import LoanCalcPaymentTable from './loancalcpaymenttable'
+import { UnmountClosed as Collapse } from 'react-collapse'
 
 const LoanCalculator = () => {
 
     const defaultLoanAmount = 10000 // defaultLoanAmount, placeholder, and loanAmount/setLoanAmount should all be the same number
     const placeholder = '$10,000'
     const [loanAmount, setLoanAmount] = useState(10000)
+    const [loanOptions, showLoanOptions] = useState(false)
     const minLoanAmt = 2000
     const interestRate36 = 8.99
     const interestRate60 = 11.46
@@ -40,6 +42,7 @@ const LoanCalculator = () => {
         setMonthlyPayment({ payment36: payment36, payment60: payment60 })
         setLoanAmount(borrowedAmount)
         calculateInterest()
+        showLoanOptions(true)
     }
 
     const calculateInterest = () => {
@@ -47,10 +50,6 @@ const LoanCalculator = () => {
         let interest60 = (loanAmount * (1 + origFee) / 12 * (10.99 / 100)).toFixed(2)
         setInterestPayment({payment36: interest36, payment60: interest60})
     }
-
-    useEffect(() => {
-        calculateMonthlyPayment()
-    })
 
     const selectProgram = e => {
         let program = e.target.value
@@ -136,81 +135,86 @@ const LoanCalculator = () => {
                 {minLoanAmt > loanAmount || loanAmount > loanInformation.maxLoanAmt ? 
                     <p className="text-red-500 text-xs">Please enter a number between {minLoanAmt} and {loanInformation.maxLoanAmt}</p> 
                         : 
-                    null}
+                    <button className="opacityApply uppercase bg-primary p-3 mb-4 lg:ml-4 w-48 rounded-full shadow-lg text-white" onClick={calculateMonthlyPayment}>Calculate payments</button>
+                }
                 <p className="m-0 text-center">Students may borrow from ${minLoanAmt} to ${loanInformation.maxLoanAmt}</p>
                 {loanType === "0" && <p className="text-xs text-center hidden lg:inline mb-2">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>}
                 {loanType === "1" && <p className="text-xs text-center hidden lg:inline mb-2">Start making full payments (interest + principal) about one month after disbursement.</p>}
-                <div className="shadow-xl rounded px-4 md:px-12 pt-8 flex flex-col lg:flex-row">
-                    
-                    {/* OPTION 1, 36 MONTHS */}
-                    {loanInformation.loanTerm36 &&
-                        <div className={loanInformation.loanTerm60 ? "flex flex-col mb-8 lg:mb-0 lg:mx-6" : "flex flex-col"}>
-                            <h3 className="text-primary text-center font-normal">Option 1</h3>
-                            <h4 className="text-primary text-center font-normal">36-Month Fixed Rate Loan</h4>
-                            <p className="m-0 text-center">{interestRate36}% Interest Rate, {loanInformation[loanType]['apr36']}% APR*</p>
-                            {loanType === "0" && <p className="text-xs text-center lg:hidden mb-2">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>}
-                            {loanType === "1" && <p className="text-xs text-center lg:hidden mb-2">Start making full payments (interest + principal) about one month after disbursement.</p>}
-                            <p className="font-bold text-center my-4">Payments:</p>
+                <Collapse isOpened={loanOptions} springConfig={{stiffness: 150, damping: 40}}>
+                    <div className="shadow-xl rounded px-4 md:px-12 pt-8 flex flex-col lg:flex-row">
+                        
+                        {/* OPTION 1, 36 MONTHS */}
+                        {loanInformation.loanTerm36 &&
+                            <div className={loanInformation.loanTerm60 ? "flex flex-col mb-8 lg:mb-0 lg:mx-6" : "flex flex-col"}>
+                                {/* <h3 className="text-primary text-center font-normal">Option 1</h3> */}
+                                <h4 className="text-primary text-center font-normal">36-Month Fixed Rate Loan</h4>
+                                <p className="m-0 text-center">{interestRate36}% Interest Rate, {loanInformation[loanType]['apr36']}% APR*</p>
+                                {loanType === "0" && <p className="text-xs text-center lg:hidden mb-2">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>}
+                                {loanType === "1" && <p className="text-xs text-center lg:hidden mb-2">Start making full payments (interest + principal) about one month after disbursement.</p>}
+                                <p className="font-bold text-center my-4">Payments:</p>
+                                    <div className="flex justify-around">
+                                        {loanType === "0" && 
+                                            <div className="flex flex-col items-center">
+                                                <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Interest-Only Period</h4>
+                                                {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
+                                                    <p className="text-primary text-2xl mb-0">${interestPayment.payment36}</p>
+                                                        :
+                                                    <p className="text-primary text-2xl mb-0">--</p>
+                                                }
+                                                <p className="text-xs">per month</p>
+                                            </div>
+                                        }
+                                        <div className="flex flex-col items-center">
+                                            <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Full Payment Period</h4>
+                                            {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
+                                                    <p className="text-primary text-2xl mb-0">${monthlyPayment.payment36}</p>
+                                                        :
+                                                    <p className="text-primary text-2xl mb-0">--</p>
+                                                }
+                                            <p className="text-xs">per month</p>
+                                        </div>
+                                    </div>
+                            </div>
+                        }
+
+                        {/* OPTION 2, 60 MONTHS */}
+                        {loanInformation.loanTerm60 &&
+                            <div className="flex flex-col lg:mx-6">
+                                <h3 className="text-primary text-center lg:mt-0 font-normal">{loanInformation.loanTerm36 && loanInformation.loanTerm60 ? "Option 2" : "Option 1"}</h3>
+                                <h4 className="text-primary text-center lg:mt-0 font-normal">60-Month Fixed Rate Loan</h4>
+                                <p className="m-0 text-center">{interestRate60}% Interest Rate, {loanInformation[loanType]['apr60']}% APR*</p>
+                                <p className="text-xs text-center lg:hidden">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
+                                <p className="font-bold text-center my-4">Payments:</p>
                                 <div className="flex justify-around">
-                                    {loanType === "0" && 
+                                        {loanType === "0" && 
+                                            <div className="flex flex-col items-center">
+                                                <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Interest-Only Period</h4>
+                                                {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
+                                                    <p className="text-primary text-2xl mb-0">${interestPayment.payment60}</p>
+                                                        :
+                                                    <p className="text-primary text-2xl mb-0">--</p>
+                                                }
+                                                <p className="text-xs">per month</p>
+                                            </div>
+                                        }
                                         <div className="flex flex-col items-center">
-                                            <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Interest-Only Period</h4>
+                                            <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Full Payment Period</h4>
                                             {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
-                                                <p className="text-primary text-2xl mb-0">${interestPayment.payment36}</p>
-                                                    :
-                                                <p className="text-primary text-2xl mb-0">--</p>
-                                            }
+                                                    <p className="text-primary text-2xl mb-0">${monthlyPayment.payment60}</p>
+                                                        :
+                                                    <p className="text-primary text-2xl mb-0">--</p>
+                                                }
                                             <p className="text-xs">per month</p>
                                         </div>
-                                    }
-                                    <div className="flex flex-col items-center">
-                                        <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Full Payment Period</h4>
-                                        {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
-                                                <p className="text-primary text-2xl mb-0">${monthlyPayment.payment36}</p>
-                                                    :
-                                                <p className="text-primary text-2xl mb-0">--</p>
-                                            }
-                                        <p className="text-xs">per month</p>
                                     </div>
-                                </div>
-                        </div>
-                    }
+                            </div>
+                        }
 
-                    {/* OPTION 2, 60 MONTHS */}
-                    {loanInformation.loanTerm60 &&
-                        <div className="flex flex-col lg:mx-6">
-                            <h3 className="text-primary text-center lg:mt-0 font-normal">{loanInformation.loanTerm36 && loanInformation.loanTerm60 ? "Option 2" : "Option 1"}</h3>
-                            <h4 className="text-primary text-center lg:mt-0 font-normal">60-Month Fixed Rate Loan</h4>
-                            <p className="m-0 text-center">{interestRate60}% Interest Rate, {loanInformation[loanType]['apr60']}% APR*</p>
-                            <p className="text-xs text-center lg:hidden">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
-                            <p className="font-bold text-center my-4">Payments:</p>
-                            <div className="flex justify-around">
-                                    {loanType === "0" && 
-                                        <div className="flex flex-col items-center">
-                                            <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Interest-Only Period</h4>
-                                            {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
-                                                <p className="text-primary text-2xl mb-0">${interestPayment.payment60}</p>
-                                                    :
-                                                <p className="text-primary text-2xl mb-0">--</p>
-                                            }
-                                            <p className="text-xs">per month</p>
-                                        </div>
-                                    }
-                                    <div className="flex flex-col items-center">
-                                        <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Full Payment Period</h4>
-                                        {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
-                                                <p className="text-primary text-2xl mb-0">${monthlyPayment.payment60}</p>
-                                                    :
-                                                <p className="text-primary text-2xl mb-0">--</p>
-                                            }
-                                        <p className="text-xs">per month</p>
-                                    </div>
-                                </div>
-                        </div>
-                    }
-
-                </div>
-                <p className="text-center text-xs m-3"><i>*The Annual Percentage Rate (APR) shown is estimated based on the loan type, origination fee, and approximate program length. The actual APR may be slightly different than the example provided based on loan type and program length. To learn how an Annual Percentage Rate (APR) is calculated, <a href="https://skills.fund/resources/how-is-an-apr-calculated" rel="noreferrer noopener">visit our blog.</a></i></p>
+                    </div>
+                </Collapse>
+                <Collapse isOpened={loanOptions} springConfig={{stiffness: 150, damping: 40}}>
+                    <p className="text-center text-xs m-0 p-3"><i>*The Annual Percentage Rate (APR) shown is estimated based on the loan type, origination fee, and approximate program length. The actual APR may be slightly different than the example provided based on loan type and program length. To learn how an Annual Percentage Rate (APR) is calculated, <a href="https://skills.fund/resources/how-is-an-apr-calculated" rel="noreferrer noopener">visit our blog.</a></i></p>
+                </Collapse>
             </div>
         </div>
     )
