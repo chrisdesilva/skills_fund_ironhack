@@ -28,8 +28,8 @@ const Header = ({ siteTitle }) => (
               id="schoolLogo"
             />
           </a>
-          <div className="w-1/3 flex justify-center">
-            <h3 className="font-light mb-0 hidden lg:block">{schoolInfo.schoolName} tuition made easy</h3>
+          <div className="w-1/3 flex justify-center hidden lg:block">
+            <h3 className="font-light mb-0 text-center">{schoolInfo.schoolName} tuition made easy</h3>
           </div>
           <a
             href="https://skills.fund/"
