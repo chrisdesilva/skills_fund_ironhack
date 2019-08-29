@@ -9,7 +9,7 @@ const Banner = props => (
                 <h2 className="text-base lg:text-xl font-light text-center text-black">Know exactly what you'll pay with Skills Fund</h2>
                 <div className="flex flex-col lg:flex-row pb-16">
                     <Button
-                        buttonClassName="opacityApply uppercase bg-primary p-3 lg:mb-0 lg:ml-4 w-40 rounded-full shadow-lg text-white"
+                        buttonClassName="opacityApply uppercase bg-primary p-3 lg:mb-0 w-40 rounded-full shadow-lg text-white"
                         divClassName="flex justify-center mt-5"
                         text="apply now"
                         onClick={props.applyNowOnClick}

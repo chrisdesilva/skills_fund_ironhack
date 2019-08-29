@@ -186,59 +186,62 @@ const LoanApp = React.forwardRef((props, ref) => {
     }
 
     return (
-        <div ref={ref} className="flex flex-col items-center justify-center py-8 mx-2 lg:mx-10 rounded shadow-xl">
-            {/* update with school name, remove cost of living if school does not offer it */}
-            <h3 className="text-center">Apply for {props.schoolName} Tuition{costOfLiving && <span> and Cost of Living Funding</span>}</h3>
-            <div className="flex justify-center">
-                <img className="w-auto" src={marching} alt="People marching and carrying flags" loading="lazy"/>
-            </div>
-            {/* update form fields as necessary */}
-            <form className="ironhack_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
-                <label htmlFor="email">Email address</label>
-                <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
-                {multiplePrograms && 
-                    <div className="w-full px-8 lg:px-0 pb-2">
-                        <p className="text-center text-sm">Select your {props.schoolName} program</p>
-                        
-                        {/* WHEN ADDING AND REMOVING PROGRAMS, PAY ATTENTION TO THE NUMBER AT THE END OF programInfo.active and handleProgramSelect */}
-                        <p className={programInfo.active.program1 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(1)}>Full-Time UX/UI Design</p>
-                        <p className={programInfo.active.program2 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(2)}>Full-Time Web Development</p>
-                        <p className={programInfo.active.program3 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(3)}>Part-Time UX/UI Design</p>
-                        <p className={programInfo.active.program4 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(4)}>Part-Time Web Development</p>
+        <div ref={ref} className="flex flex-col items-center justify-center pt-8 mx-2 lg:mx-10 rounded shadow-xl bg-purple-150">
+            <h2>Loan Application</h2>
+            <div className="rounded shadow-2xl p-8 mx-4 bg-white">
+                {/* update with school name, remove cost of living if school does not offer it */}
+                <h3 className="text-center font-normal">{props.schoolName} Tuition{costOfLiving && <span> and Cost of Living</span>} Financing</h3>
+                <div className="flex justify-center">
+                    <img className="w-auto" src={marching} alt="People marching and carrying flags" loading="lazy"/>
+                </div>
+                {/* update form fields as necessary */}
+                <form className="ironhack_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
+                    <label htmlFor="email">Email address</label>
+                    <input className="border-2 rounded border-primary text-center py-2 mb-4 w-64" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
+                    {multiplePrograms && 
+                        <div className="w-64 px-8 lg:px-0 pb-2">
+                            <p className="text-center text-sm">Select your {props.schoolName} program</p>
+                            
+                            {/* WHEN ADDING AND REMOVING PROGRAMS, PAY ATTENTION TO THE NUMBER AT THE END OF programInfo.active and handleProgramSelect */}
+                            <p className={programInfo.active.program1 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(1)}>Full-Time UX/UI Design</p>
+                            <p className={programInfo.active.program2 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(2)}>Full-Time Web Development</p>
+                            <p className={programInfo.active.program3 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(3)}>Part-Time UX/UI Design</p>
+                            <p className={programInfo.active.program4 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(4)}>Part-Time Web Development</p>
+                        </div>
+                    }
+                    <div className="hidden">
+                        <input type="text" name="Stakeholder Type" value="Student" readOnly/>
+                        <input type="text" name="Program Name" value={programInfo.programName} readOnly/>
+                        <input type="text" name="School" value={props.schoolName} readOnly/>
+                        <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted" readOnly/>
+                        <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" readOnly/>
                     </div>
+                    {submitted ? thankYouMsg : <input className="w-40 opacityApply uppercase bg-primary p-3 lg:mb-0 w-40 rounded-full text-white" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>}
+                    {!submitted && <p className="pt-3 text-xs italic mb-0 text-center">Please note: clicking Apply Now will open your loan application in a new tab</p>}
+                </form>
+                </div>
+                {onlinePrograms && 
+                    <p className="px-8">
+                        <strong>ATTENTION ONLINE STUDENTS: </strong>When entering "Applicant Information" within your loan application, <strong>please select {schoolHQState} as "the state of the school you plan to attend."</strong>
+                    </p>
                 }
-                <div className="hidden">
-                    <input type="text" name="Stakeholder Type" value="Student" readOnly/>
-                    <input type="text" name="Program Name" value={programInfo.programName} readOnly/>
-                    <input type="text" name="School" value={props.schoolName} readOnly/>
-                    <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted" readOnly/>
-                    <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" readOnly/>
+                <div className="px-8 text-sm">
+                    <p className="text-center mt-8">If you are a cosigner, begin the addendum now by clicking <a className="text-primary" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p>
+                    <p className="text-center text-primary cursor-pointer font-bold" onClick={() => toggleDisclaimers(!disclaimers)}>Disclaimers</p>
+                <Collapse isOpened={disclaimers} springConfig={{stiffness: 150, damping: 40}}>
+                    <div>
+                        <p><strong>Before you begin, please read these important notes:</strong></p>
+                        <p>Customer identification policy:</p>
+                        <p>For the purpose of the following notice, the words "you" and "your" mean the Borrower and the Cosigner. All applicants: Important Federal Law Notice - Important information about procedures for opening a new account: To help the government fight the funding of terrorism and money laundering activities, federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account. What this means for you: When you open an account, we will ask for your name, address, date of birth and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
+                        <p>Consent to share data:</p>
+                        <p>By clicking the box below and beginning the application, I consent under Federal and state privacy laws to NIMAA providing to Skills Fund information related to my application, enrollment, and completion, including but not limited to information contained in my original application and supplements as well as information regarding my completion, graduation, and post-program outcomes information.</p>
+                        <p><strong>While in the application, please note:</strong></p>
+                        <p>1. DO NOT use the browser Back button. Using the browser Back button may cause invalid information and delay the processing of your loan.</p>
+                        <p>2. Your application will not be complete until it has been signed and submitted along with any required documentation.</p>
+                        <p className="mb-0 pb-4">3. You will need the address and phone number of 3 references to complete your application, including one relative not living with you. Others may be friends, employers, etc.</p>
+                    </div>
+                </Collapse>
                 </div>
-                {submitted ? thankYouMsg : <input className="w-40 opacityApply" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>}
-                {!submitted && <p className="pt-3 text-xs italic">Please note: clicking Apply Now will open your loan application in a new tab</p>}
-            </form>
-            {onlinePrograms && 
-                <p className="px-8">
-                    <strong>ATTENTION ONLINE STUDENTS: </strong>When entering "Applicant Information" within your loan application, <strong>please select {schoolHQState} as "the state of the school you plan to attend."</strong>
-                </p>
-            }
-            <div className="px-8 text-sm">
-                <p className="text-center">If you are a cosigner, begin the addendum now by clicking <a className="text-primary" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p>
-                <p className="text-center text-primary cursor-pointer font-bold" onClick={() => toggleDisclaimers(!disclaimers)}>Disclaimers</p>
-            <Collapse isOpened={disclaimers} springConfig={{stiffness: 150, damping: 40}}>
-                <div>
-                    <p><strong>Before you begin, please read these important notes:</strong></p>
-                    <p>Customer identification policy:</p>
-                    <p>For the purpose of the following notice, the words "you" and "your" mean the Borrower and the Cosigner. All applicants: Important Federal Law Notice - Important information about procedures for opening a new account: To help the government fight the funding of terrorism and money laundering activities, federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account. What this means for you: When you open an account, we will ask for your name, address, date of birth and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
-                    <p>Consent to share data:</p>
-                    <p>By clicking the box below and beginning the application, I consent under Federal and state privacy laws to NIMAA providing to Skills Fund information related to my application, enrollment, and completion, including but not limited to information contained in my original application and supplements as well as information regarding my completion, graduation, and post-program outcomes information.</p>
-                    <p><strong>While in the application, please note:</strong></p>
-                    <p>1. DO NOT use the browser Back button. Using the browser Back button may cause invalid information and delay the processing of your loan.</p>
-                    <p>2. Your application will not be complete until it has been signed and submitted along with any required documentation.</p>
-                    <p className="mb-0">3. You will need the address and phone number of 3 references to complete your application, including one relative not living with you. Others may be friends, employers, etc.</p>
-                </div>
-            </Collapse>
-            </div>
         </div>
     )
 })

@@ -68,12 +68,12 @@ const LeadCaptureForm = props => {
                 <p>We'll send you our step-by-step guide to paying for your program.</p>
                 <form className="SecureSet_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email address</label>
-                <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
+                <input className="border-2 rounded border-primary text-center py-2 mb-4 w-64" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 <div className="hidden">
                     <input type="text" name="Stakeholder Type" value="Student" readOnly/>
                     <input type="text" name="Lead Cycle" value="Lead Capture" readOnly/>
                 </div>
-                {thankYou ? <p className="text-center">Thank you, your guide will be in your inbox soon!</p>: <input value="Send me the guide!" className="opacityApply" id="leadCaptureSubmitBtn" type="submit"/>}
+                {thankYou ? <p className="text-center">Thank you, your guide will be in your inbox soon!</p>: <input value="Send me the guide!" className="opacityApply bg-primary p-3 w-40 rounded-full shadow-lg text-white" type="submit"/>}
             </form>
             </div>
         </div>

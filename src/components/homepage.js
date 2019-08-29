@@ -132,16 +132,16 @@ class Homepage extends React.Component {
               eligibility={this.activateEligibility}
               contact={this.activateContact}
             />
-            <Collapse isOpened={this.state.termInfo} springConfig={{stiffness: 30, damping: 30}}>
+            <Collapse isOpened={this.state.termInfo} springConfig={{stiffness: 100, damping: 40}}>
                 <TermInfo />
             </Collapse>
-            <Collapse isOpened={this.state.faq} springConfig={{stiffness: 30, damping: 30}}>
+            <Collapse isOpened={this.state.faq} springConfig={{stiffness: 100, damping: 40}}>
                 <FAQ />
             </Collapse>
-            <Collapse isOpened={this.state.eligibility} springConfig={{stiffness: 50, damping: 40}}>
+            <Collapse isOpened={this.state.eligibility} springConfig={{stiffness: 100, damping: 40}}>
                 <Eligibility />
             </Collapse>
-            <Collapse isOpened={this.state.contact} springConfig={{stiffness: 50, damping: 40}}>
+            <Collapse isOpened={this.state.contact} springConfig={{stiffness: 100, damping: 40}}>
                 <ContactForm formName={this.props.formName}/>
             </Collapse>
             <ApplyFooter
