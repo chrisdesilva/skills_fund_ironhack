@@ -36,7 +36,7 @@ const FAQ = () => {
           <h2 className="py-4 text-center">Frequently Asked Questions</h2>
           <div onClick={() => showq1(!q1)}><h3 className="text-lg text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>How much can I borrow and for what specific uses?</h3></div>
           <Collapse isOpened={q1} springConfig={{stiffness: 150, damping: 30}}>
-               <p>The maximum amount you can borrow will depend on your program. You can finance your tuition, optional certification, and cost of living expenses.</p>
+               <p>The maximum amount you can borrow will depend on your program. You can finance your tuition and cost of living expenses.</p>
                <p><strong>Full-Time Web Development & Full-Time UX/UI Design Bootcamps</strong></p>
                     <ul>
                          <li>Full Tuition: $11,500 (includes $1,000 deposit)</li>
