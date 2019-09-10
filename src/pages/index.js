@@ -3,7 +3,7 @@ import Homepage from '../components/homepage'
 import ReactGA from 'react-ga'
 import ReactPixel from 'react-facebook-pixel'
 
-const trackingId = 'UA-68312423-42'
+const trackingId = 'UA-68312423-1'
 ReactGA.initialize(trackingId, {
   debug: false,
   titleCase: false,
