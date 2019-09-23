@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import ebook from '../images/ebook.jpg'
-import { schoolName,skfURL } from '../constants/programInfo'
 
 const LeadCaptureForm = props => {
 
@@ -39,12 +38,12 @@ const LeadCaptureForm = props => {
             },
             {
             "name": "school", 
-            "value": `${schoolName}`
+            "value": `${props.schoolName}`
             }
         ],
         "context": {
             "hutk": hsCookie.hubspotutk,
-            "pageUri": `${skfURL}`,
+            "pageUri": `https://ironhack.skills.fund`,
             "pageName": `${props.schoolName} | Skills Fund`,
             "ipAddress": `${props.IP}`
         }
@@ -71,13 +70,13 @@ const LeadCaptureForm = props => {
             </div>
             <div className="mx-10 rounded flex flex-col pt-5 px-4 mt-5 justify-center items-center">
                 <p>We'll send you our step-by-step guide to paying for your program.</p>
-                <form className="SecureSet_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
+                <form className="ironhack_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email address</label>
                 <input className="border-2 rounded border-primary text-center py-2 mb-4 w-64" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 <div className="hidden">
                     <input type="text" name="Stakeholder Type" value="Student" readOnly/>
                     <input type="text" name="Lead Cycle" value="Lead Capture" readOnly/>
-                    <input type="text" name="School" value={schoolName} readOnly/>
+                    <input type="text" name="School" value={props.schoolName} readOnly/>
                 </div>
                 {thankYou ? <p className="text-center">Thank you, your guide will be in your inbox soon!</p>: <input className="cursor-pointer opacityApply uppercase bg-primary p-3 mb-4 w-48 rounded-full shadow-lg text-white" value="Send me the guide!" id="leadCaptureSubmitBtn" type="submit"/>}
             </form>
