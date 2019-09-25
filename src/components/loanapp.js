@@ -105,7 +105,7 @@ const LoanApp = React.forwardRef((props, ref) => {
 
     const trackGoogleAnalyticsEvent = () => {
             ReactGA.event({
-                category: 'Apply Now Button',
+                category: 'Apply Now Button | Ironhack',
                 action: 'click',
                 label: 'submitted loan application'
             })
@@ -216,7 +216,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                         <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted" readOnly/>
                         <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" readOnly/>
                     </div>
-                    {submitted ? thankYouMsg : <input className="w-40 opacityApply uppercase bg-primary p-3 lg:mb-0 w-40 rounded-full text-white" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>}
+                    {submitted ? <span className="pt-4 text-center">Thanks for applying! Your loan application has opened in a new window. If the application does not open and pop-up blockers have been disabled, please contact <a href="mailto:tech@skills.fund" className="text-primary">Tech@Skills.Fund</a>.</span> : <input className="w-40 opacityApply uppercase bg-primary p-3 lg:mb-0 w-40 rounded-full text-white" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>}
                     {!submitted && <p className="pt-3 text-xs italic mb-0 text-center">Please note: clicking Apply Now will open your loan application in a new tab</p>}
                 </form>
                 </div>
