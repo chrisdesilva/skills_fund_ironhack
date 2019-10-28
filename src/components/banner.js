@@ -13,6 +13,7 @@ const Banner = props => (
                         divClassName="flex justify-center mt-5"
                         text="apply now"
                         onClick={props.applyNowOnClick}
+                        id="bannerApply"
                     />
                 </div>
         </div>

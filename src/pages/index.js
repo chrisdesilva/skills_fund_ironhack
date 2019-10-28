@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Homepage from '../components/homepage'
-import ReactGA from 'react-ga'
+// import ReactGA from 'react-ga'
 import ReactPixel from 'react-facebook-pixel'
 
-const trackingId = 'UA-68312423-1'
-ReactGA.initialize(trackingId, {
-  debug: false,
-  titleCase: false,
-  gaOptions: {
-    siteSpeedSampleRate: 100
-  }
-})
+// const trackingId = 'UA-68312423-1'
+// ReactGA.initialize(trackingId, {
+//   debug: false,
+//   titleCase: false,
+//   gaOptions: {
+//     siteSpeedSampleRate: 100
+//   }
+// })
 
 const netlifyFormName = 'ironhack_contact'
 

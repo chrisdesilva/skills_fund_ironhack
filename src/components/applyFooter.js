@@ -13,6 +13,7 @@ const ApplyFooter = props => {
                         divClassName="flex justify-center mt-5"
                         text="apply now"
                         onClick={props.onClick}
+                        id="applyFooter"
                     /> 
                 </div>
             </div>
