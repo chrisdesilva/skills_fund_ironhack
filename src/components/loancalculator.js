@@ -101,7 +101,7 @@ const LoanCalculator = () => {
                 <h3 className="text-center">Calculate Your Monthly Payments</h3>
 
                 {/* UPDATE LOAN AMOUNTS AND COST OF LIVING BY PROGRAM BELOW */}
-                <p className="text-center">Choose the loan amount that works best for you. Borrow up to $11,500 for Full-Time Web Development or Full-Time UX/UI Design tuition and $5,000 for cost of living. Borrow up to $12,000 for the Part-Time Web Development or Part-Time UX/UI Design tuition.</p>
+                <p className="text-center">Choose the loan amount that works best for you. Borrow up to $12,000 for Full-Time Web Development or Full-Time UX/UI Design tuition and $5,000 for cost of living. Borrow up to $11,500 for the Part-Time Web Development or Part-Time UX/UI Design tuition.</p>
                 <LoanCalcPaymentTable />
 
                 {/* ADD OR REMOVE PROGRAMS BELOW */}
