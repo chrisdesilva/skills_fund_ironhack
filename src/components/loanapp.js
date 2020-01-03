@@ -220,14 +220,14 @@ const LoanApp = React.forwardRef((props, ref) => {
                     {!submitted && <p className="pt-3 text-xs italic mb-0 text-center">Please note: clicking Apply Now will open your loan application in a new tab</p>}
                 </form>
                 </div>
-                {onlinePrograms && 
+                {/* {onlinePrograms && 
                     <p className="px-8">
                         <strong>ATTENTION ONLINE STUDENTS: </strong>When entering "Applicant Information" within your loan application, <strong>please select {schoolHQState} as "the state of the school you plan to attend."</strong>
                     </p>
-                }
+                } */}
                 <div className="px-8 text-sm">
-                    <p className="text-center mt-8">If you are a cosigner, begin the addendum now by clicking <a className="text-primary" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p>
-                    <p className="text-center text-primary cursor-pointer font-bold" onClick={() => toggleDisclaimers(!disclaimers)}>Disclaimers</p>
+                    {/* <p className="text-center mt-8">If you are a cosigner, begin the addendum now by clicking <a className="text-primary" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p> */}
+                    <p className="text-center text-primary cursor-pointer font-bold my-4" onClick={() => toggleDisclaimers(!disclaimers)}>Disclaimers</p>
                 <Collapse isOpened={disclaimers} springConfig={{stiffness: 150, damping: 40}}>
                     <div>
                         <p><strong>Before you begin, please read these important notes:</strong></p>
