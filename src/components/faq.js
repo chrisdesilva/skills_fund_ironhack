@@ -40,15 +40,15 @@ const FAQ = () => {
                <p>The maximum amount you can borrow will depend on your program. You can finance your tuition and cost of living expenses.</p>
                <p><strong>Full-Time Web Development & Full-Time UX/UI Design Bootcamps</strong></p>
                     <ul>
-                         <li>Full Tuition: $11,500 (includes $1,000 deposit)</li>
+                         <li>Full Tuition: $12,000 (includes $1,000 deposit)</li>
                          <li>Cost of Living: $5,000</li>
-                         <li>Loan Threshold: $2,000 - $15,500</li>
+                         <li>Loan Threshold: $2,000 - $16,000</li>
                     </ul>
                <p><strong>Part-Time Web Development & Part-Time UX/UI Design Bootcamps</strong></p>
                     <ul>
-                         <li>Full Tuition: $12,000 (includes $1,000 deposit)</li>
+                         <li>Full Tuition: $12,500 (includes $1,000 deposit)</li>
                          <li>Cost of Living: N/A</li>
-                         <li>Loan Threshold: $2,000 - $11,000</li>
+                         <li>Loan Threshold: $2,000 - $11,500</li>
                     </ul>
                <p className="mb-0 pb-4"><strong>Please note:</strong> In order to finance cost of living, borrow at least $2,000 in tuition financing. You will pay your cash deposit directly to <strong>{schoolName}</strong>.</p>
           </Collapse>

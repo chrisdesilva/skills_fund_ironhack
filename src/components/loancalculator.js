@@ -56,7 +56,7 @@ const LoanCalculator = () => {
         switch(program) {
             case "Full-Time Web Development or UX/UI Design": // use this info for default case at bottom
                 setLoanInformation({
-                    maxLoanAmt: 15500,
+                    maxLoanAmt: 16000,
                     loanTerm36: true,
                     loanTerm60: false,
                     '0': { 
@@ -69,7 +69,7 @@ const LoanCalculator = () => {
                 break;
             case "Part-Time Web Development or UX/UI Design": 
                 setLoanInformation({
-                    maxLoanAmt: 11000,
+                    maxLoanAmt: 11500,
                     loanTerm36: true,
                     loanTerm60: false,
                     '0': null,
@@ -81,7 +81,7 @@ const LoanCalculator = () => {
                 break;
             default: // info below needs to match info from first program
                 setLoanInformation({
-                    maxLoanAmt: 15500,
+                    maxLoanAmt: 16000,
                     loanTerm36: true,
                     loanTerm60: false,
                     '0': { 
