@@ -156,7 +156,7 @@ const LoanCalculator = () => {
                                         {loanType === "0" && 
                                             <div className="flex flex-col items-center">
                                                 <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Interest-Only Period</h4>
-                                                {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
+                                                {loanAmount >= minLoanAmt && loanAmount <= loanInformation.maxLoanAmt ?
                                                     <p className="text-primary text-2xl mb-0">${interestPayment.payment36}</p>
                                                         :
                                                     <p className="text-primary text-2xl mb-0">--</p>
@@ -166,7 +166,7 @@ const LoanCalculator = () => {
                                         }
                                         <div className="flex flex-col items-center">
                                             <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Full Payment Period</h4>
-                                            {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
+                                            {loanAmount >= minLoanAmt && loanAmount <= loanInformation.maxLoanAmt ?
                                                     <p className="text-primary text-2xl mb-0">${monthlyPayment.payment36}</p>
                                                         :
                                                     <p className="text-primary text-2xl mb-0">--</p>
@@ -189,7 +189,7 @@ const LoanCalculator = () => {
                                         {loanType === "0" && 
                                             <div className="flex flex-col items-center">
                                                 <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Interest-Only Period</h4>
-                                                {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
+                                                {loanAmount >= minLoanAmt && loanAmount <= loanInformation.maxLoanAmt ?
                                                     <p className="text-primary text-2xl mb-0">${interestPayment.payment60}</p>
                                                         :
                                                     <p className="text-primary text-2xl mb-0">--</p>
@@ -199,7 +199,7 @@ const LoanCalculator = () => {
                                         }
                                         <div className="flex flex-col items-center">
                                             <h4 className="border-primary border-b text-center font-normal mx-5 mb-3">Full Payment Period</h4>
-                                            {loanAmount > minLoanAmt && loanAmount < loanInformation.maxLoanAmt ?
+                                            {loanAmount >= minLoanAmt && loanAmount <= loanInformation.maxLoanAmt ?
                                                     <p className="text-primary text-2xl mb-0">${monthlyPayment.payment60}</p>
                                                         :
                                                     <p className="text-primary text-2xl mb-0">--</p>
