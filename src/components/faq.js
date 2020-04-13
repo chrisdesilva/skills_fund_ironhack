@@ -50,7 +50,8 @@ const FAQ = () => {
         </p>
         <p>
           <strong>
-            Full-Time Web Development & Full-Time UX/UI Design Bootcamps
+            Full-Time Web Development, Web Development Online & Full-Time UX/UI
+            Design Bootcamps
           </strong>
         </p>
         <ul>

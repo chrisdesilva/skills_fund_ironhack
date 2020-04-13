@@ -95,6 +95,19 @@ const LoanCalculator = () => {
         })
         setLoanType("1")
         break
+      case "Web Development Online":
+        setLoanInformation({
+          maxLoanAmt: 16000,
+          loanTerm36: true,
+          loanTerm60: false,
+          "0": {
+            k: 4,
+            apr36: 11.25,
+          },
+          "1": null,
+        })
+        setLoanType("0")
+        break
       default:
         // info below needs to match info from first program
         setLoanInformation({
@@ -121,8 +134,9 @@ const LoanCalculator = () => {
         <p className="text-center">
           Choose the loan amount that works best for you. Borrow up to $12,000
           for Full-Time Web Development or Full-Time UX/UI Design tuition and
-          $5,000 for cost of living. Borrow up to $11,500 for the Part-Time Web
-          Development or Part-Time UX/UI Design tuition.
+          $5,000 for cost of living, up to $11,500 for the Part-Time Web
+          Development or Part-Time UX/UI Design tuition, or up to $12,000 for
+          Web Development Online tuition and $5,000 for cost of living.
         </p>
         <LoanCalcPaymentTable />
 
@@ -139,6 +153,9 @@ const LoanCalculator = () => {
               </option>
               <option value="Part-Time Web Development or UX/UI Design">
                 Part-Time Web Development or UX/UI Design
+              </option>
+              <option value="Web Development Online">
+                Web Development Online
               </option>
             </select>
           </div>
