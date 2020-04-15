@@ -134,7 +134,7 @@ const LoanCalculator = () => {
         <p className="text-center">
           Choose the loan amount that works best for you. Borrow up to $12,500
           for Full-Time Web Development or Full-Time UX/UI Design tuition and
-          $5,000 for cost of living, up to $11,500 for the Part-Time Web
+          $5,000 for cost of living, up to $12,500 for the Part-Time Web
           Development or Part-Time UX/UI Design tuition, or up to $12,000 for
           Web Development Online tuition and $5,000 for cost of living.{" "}
           <strong>Please note:</strong> deposits are not eligible for financing.
