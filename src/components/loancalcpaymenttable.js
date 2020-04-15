@@ -15,9 +15,9 @@ const LoanCalcPaymentTable = () => (
           <td className="text-center">
             Full-Time Web Development & Full-Time UX/UI Design Bootcamps
           </td>
-          <td className="text-center">$12,000 (includes $1,000 deposit)</td>
+          <td className="text-center">$12,500 (includes $1,000 deposit)</td>
           <td className="text-center">$5,000</td>
-          <td className="text-center">$16,000</td>
+          <td className="text-center">$16,500</td>
         </tr>
         <tr>
           <td className="text-center">
@@ -47,14 +47,14 @@ const LoanCalcPaymentTable = () => (
         </tr>
         <tr>
           <td className="text-center">
-            Tuition: $12,000 (includes $1,000 deposit)
+            Tuition: $12,500 (includes $1,000 deposit)
           </td>
         </tr>
         <tr>
           <td className="text-center">Cost of Living: $5,000</td>
         </tr>
         <tr>
-          <td className="text-center">Max Total: $16,000</td>
+          <td className="text-center">Max Total: $16,500</td>
         </tr>
         <tr>
           <th className="text-center">

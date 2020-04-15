@@ -55,9 +55,9 @@ const FAQ = () => {
           </strong>
         </p>
         <ul>
-          <li>Full Tuition: $12,000 (includes $1,000 deposit)</li>
+          <li>Full Tuition: $12,500 (includes $1,000 deposit)</li>
           <li>Cost of Living: $5,000</li>
-          <li>Loan Threshold: $2,000 - $16,000</li>
+          <li>Loan Threshold: $2,000 - $16,500</li>
         </ul>
         <p>
           <strong>
