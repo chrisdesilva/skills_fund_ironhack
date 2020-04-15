@@ -50,14 +50,21 @@ const FAQ = () => {
         </p>
         <p>
           <strong>
-            Full-Time Web Development, Web Development Online & Full-Time UX/UI
-            Design Bootcamps
+            Full-Time Web Development & Full-Time UX/UI Design Bootcamps
           </strong>
         </p>
         <ul>
-          <li>Full Tuition: $12,500 (includes $1,000 deposit)</li>
+          <li>Full Tuition: $12,500 </li>
           <li>Cost of Living: $5,000</li>
-          <li>Loan Threshold: $2,000 - $16,500</li>
+          <li>Loan Threshold: $2,000 - $17,500</li>
+        </ul>
+        <p>
+          <strong>Web Development Online Bootcamp</strong>
+        </p>
+        <ul>
+          <li>Full Tuition: $12,000 </li>
+          <li>Cost of Living: $5,000</li>
+          <li>Loan Threshold: $2,000 - $17,000</li>
         </ul>
         <p>
           <strong>
@@ -65,9 +72,9 @@ const FAQ = () => {
           </strong>
         </p>
         <ul>
-          <li>Full Tuition: $12,500 (includes $1,000 deposit)</li>
+          <li>Full Tuition: $12,500 </li>
           <li>Cost of Living: N/A</li>
-          <li>Loan Threshold: $2,000 - $11,500</li>
+          <li>Loan Threshold: $2,000 - $12,500</li>
         </ul>
         <p className="mb-0 pb-4">
           <strong>Please note:</strong> In order to finance cost of living,

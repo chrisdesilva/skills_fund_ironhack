@@ -22,7 +22,7 @@ const LoanCalculator = () => {
   })
   const [loanType, setLoanType] = useState("0") // default to 0 for interest-only, 1 for immediate repayment
   const [loanInformation, setLoanInformation] = useState({
-    maxLoanAmt: 16500,
+    maxLoanAmt: 17500,
     loanTerm36: true, // only true if 36 month option is available
     loanTerm60: false, // only true if 60 month option is available
     k: 4, // (program length in weeks / 4) + 2 -- round program length down to nearest number divisible by 4 (ie. 27 week program rounds down to 24, 24 / 4 + 6 = 12, k = 12)
@@ -72,7 +72,7 @@ const LoanCalculator = () => {
     switch (program) {
       case "Full-Time Web Development or UX/UI Design": // use this info for default case at bottom
         setLoanInformation({
-          maxLoanAmt: 16500,
+          maxLoanAmt: 17500,
           loanTerm36: true,
           loanTerm60: false,
           "0": {
@@ -85,7 +85,7 @@ const LoanCalculator = () => {
         break
       case "Part-Time Web Development or UX/UI Design":
         setLoanInformation({
-          maxLoanAmt: 11500,
+          maxLoanAmt: 12500,
           loanTerm36: true,
           loanTerm60: false,
           "0": null,
@@ -97,7 +97,7 @@ const LoanCalculator = () => {
         break
       case "Web Development Online":
         setLoanInformation({
-          maxLoanAmt: 16000,
+          maxLoanAmt: 17000,
           loanTerm36: true,
           loanTerm60: false,
           "0": {
@@ -111,7 +111,7 @@ const LoanCalculator = () => {
       default:
         // info below needs to match info from first program
         setLoanInformation({
-          maxLoanAmt: 16500,
+          maxLoanAmt: 17500,
           loanTerm36: true,
           loanTerm60: false,
           "0": {
@@ -136,7 +136,8 @@ const LoanCalculator = () => {
           for Full-Time Web Development or Full-Time UX/UI Design tuition and
           $5,000 for cost of living, up to $11,500 for the Part-Time Web
           Development or Part-Time UX/UI Design tuition, or up to $12,000 for
-          Web Development Online tuition and $5,000 for cost of living.
+          Web Development Online tuition and $5,000 for cost of living.{" "}
+          <strong>Please note:</strong> deposits are not eligible for financing.
         </p>
         <LoanCalcPaymentTable />
 
