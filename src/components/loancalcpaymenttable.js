@@ -1,87 +1,47 @@
-import React from "react"
+import React from 'react'
+import { paymentTable } from '../constants/programInfo'
 
 const LoanCalcPaymentTable = () => (
-  <div className="flex flex-col items-center">
-    {/* WEB TABLE */}
-    <table className="hidden lg:inline">
-      <tbody>
-        <tr>
-          <th className="text-center">Program</th>
-          <th className="text-center">Tuition</th>
-          <th className="text-center">Cost of Living</th>
-          <th className="text-center">Max Total</th>
-        </tr>
-        <tr>
-          <td className="text-center">
-            Full-Time Web Development & Full-Time UX/UI Design Bootcamps
-          </td>
-          <td className="text-center">$12,500</td>
-          <td className="text-center">$5,000</td>
-          <td className="text-center">$17,500</td>
-        </tr>
-        <tr>
-          <td className="text-center">
-            Part-Time Web Development & Part-Time UX/UI Design Bootcamps
-          </td>
-          <td className="text-center">$12,500</td>
-          <td className="text-center">N/A</td>
-          <td className="text-center">$12,500</td>
-        </tr>
-        <tr>
-          <td className="text-center">Web Development Online</td>
-          <td className="text-center">$12,000</td>
-          <td className="text-center">$5,000</td>
-          <td className="text-center">$17,000</td>
-        </tr>
-      </tbody>
-    </table>
+    <div className="flex flex-col items-center">
+        {/* WEB TABLE */}
+        <table className="hidden lg:inline">
+            <tbody>
+                <tr>
+                    {paymentTable.headers.map((header, i) => <th key={i} className="text-center">{header}</th>)}
+                </tr>
+                    {paymentTable.data.map(data => {
+                        return <tr key={data.name}>
+                            <td className="text-center">{data.name}</td>
+                            <td className="text-center">{data.tuition}</td>
+                            <td className="text-center">{data.col}</td>
+                            <td className="text-center">{data.max}</td>
+                        </tr>
+                    })}
+            </tbody>
+        </table>
 
-    {/* MOBILE TABLE */}
-    <table className="lg:hidden">
-      <tbody>
-        <tr>
-          <th className="text-center">
-            Full-Time Web Development & Full-Time UX/UI Design Bootcamps
-          </th>
-        </tr>
-        <tr>
-          <td className="text-center">Tuition: $12,500</td>
-        </tr>
-        <tr>
-          <td className="text-center">Cost of Living: $5,000</td>
-        </tr>
-        <tr>
-          <td className="text-center">Max Total: $17,500</td>
-        </tr>
-        <tr>
-          <th className="text-center">Web Development Online Bootcamp</th>
-        </tr>
-        <tr>
-          <td className="text-center">Tuition: $12,000</td>
-        </tr>
-        <tr>
-          <td className="text-center">Cost of Living: $5,000</td>
-        </tr>
-        <tr>
-          <td className="text-center">Max Total: $17,000</td>
-        </tr>
-        <tr>
-          <th className="text-center">
-            Part-Time Web Development & Part-Time UX/UI Design Bootcamps
-          </th>
-        </tr>
-        <tr>
-          <td className="text-center">Tuition: $12,500</td>
-        </tr>
-        <tr>
-          <td className="text-center">Cost of Living: N/A</td>
-        </tr>
-        <tr>
-          <td className="text-center">Max Total: $12,500</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        {/* MOBILE TABLE */}
+        <table className="lg:hidden">
+            <tbody>
+                {paymentTable.data.map((program, i) => {
+                    return <React.Fragment key={i}>
+                        <tr>
+                            <th className="text-center bg-primary text-white rounded">{program.name}</th>
+                        </tr>
+                        <tr>
+                            <td className="text-center">Tuition: {program.tuition}</td>
+                        </tr>
+                        <tr>
+                            <td className="text-center">Cost of Living: {program.col}</td>
+                        </tr>
+                        <tr>
+                            <td className="text-center">Max Total: {program.max}</td>
+                        </tr>
+                    </React.Fragment>
+                })}
+            </tbody>
+        </table>
+    </div>
 )
 
 export default LoanCalcPaymentTable

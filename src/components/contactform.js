@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { schoolName } from '../constants/programInfo'
+ 
 const encode = (data) => {
     return Object.keys(data)
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -13,7 +14,7 @@ class ContactForm extends React.Component {
         email: "",
         identity: "",
         name: "",
-        school: "Ironhack",
+        school: schoolName,
         other: "",
         otherDescription: "",
         thankyou: false,
@@ -87,7 +88,7 @@ class ContactForm extends React.Component {
                         <label className="block text-gray-700 text-sm font-bold" htmlFor="comments">Question and/or Comment</label>
                         <textarea onChange={this.handleChange} value={this.state.comments} name="comments" className="shadow appearance-none border md:w-1/3 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter any questions or comments here" required/>
                     </div>
-                    <button type="submit" className="opacityApply bg-primary p-3 w-40 rounded-full shadow-lg text-white">Send Me More Info</button>
+                    <button type="submit" className="opacityApply bg-primary p-3 lg:mb-0 lg:ml-4 w-40 rounded-full shadow-lg text-white">Send Me More Info</button>
                 </form>
                 {this.state.thankyou && <p className="text-center text-primary">Thanks for getting in touch! We'll reach out with more information soon.</p>}
             </div> 

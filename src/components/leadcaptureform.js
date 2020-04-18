@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import ebook from '../images/ebook.jpg'
+import ebook from '../images/WomanClimber_Color.png'
+import { schoolName,skfURL } from '../constants/programInfo'
 
 const LeadCaptureForm = props => {
 
@@ -38,12 +39,12 @@ const LeadCaptureForm = props => {
             },
             {
             "name": "school", 
-            "value": `${props.schoolName}`
+            "value": `${schoolName}`
             }
         ],
         "context": {
             "hutk": hsCookie.hubspotutk,
-            "pageUri": `https://ironhack.skills.fund`,
+            "pageUri": `${skfURL}`,
             "pageName": `${props.schoolName} | Skills Fund`,
             "ipAddress": `${props.IP}`
         }
@@ -60,6 +61,7 @@ const LeadCaptureForm = props => {
         .catch(error => console.log('error: ', error))
         showThankYou(true)
         setEmail('')
+        props.trackGA()
     }
 
     return (
@@ -76,7 +78,7 @@ const LeadCaptureForm = props => {
                 <div className="hidden">
                     <input type="text" name="Stakeholder Type" value="Student" readOnly/>
                     <input type="text" name="Lead Cycle" value="Lead Capture" readOnly/>
-                    <input type="text" name="School" value={props.schoolName} readOnly/>
+                    <input type="text" name="School" value={schoolName} readOnly/>
                 </div>
                 {thankYou ? <p className="text-center">Thank you, your guide will be in your inbox soon!</p>: <input className="cursor-pointer opacityApply uppercase bg-primary p-3 mb-4 w-48 rounded-full shadow-lg text-white" value="Send me the guide!" id="leadCaptureSubmitBtn" type="submit"/>}
             </form>

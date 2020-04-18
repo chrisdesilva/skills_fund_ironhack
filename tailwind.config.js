@@ -2,21 +2,21 @@ module.exports = {
   theme: {
     backgroundColor: theme => ({
       ...theme('colors'),
-      'primary': '#9d1996',
-      'secondary': '#14a5a9',
+      'secondary': '#9d1996',
+      'primary': '#14a5a9',
       'tertiary': 'rgb(246, 134, 14)',
-      'purple-150': '#fce4fc'
+      'purple-150': '#bef5f7', //light purple: #fce4fc
     }),
     textColor: theme => ({
       ...theme('colors'),
-      'primary': '#9d1996',
-      'secondary': '#14a5a9',
+      'secondary': '#9d1996',
+      'primary': '#14a5a9',
       'white': '#fff' 
     }),
     borderColor: theme => ({
       ...theme('colors'),
-      'primary': '#9d1996',
-      'secondary': '#14a5a9'
+      'secondary': '#9d1996',
+      'primary': '#14a5a9'
     }),
     extend: {}
   },
