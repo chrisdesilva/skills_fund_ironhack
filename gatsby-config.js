@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Skills Fund`,
     description: `Skills Fund finances students to attend the best coding and data science programs around. We believe in 100% loan transparency, and have aligned all incentives around student success.`,
-    headline: `Partner financing page for Skills Fund and Ironhack`,
+    headline: `Partner financing page for Skills Fund and SCHOOLNAME`,
     author: `@Skills_Fund`,
     siteLanguage: `en`,
     logo: `src/images/skillsFund_logo.png`,
@@ -18,17 +18,23 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-gtag`,
-    //   options: {
-    //     trackingIds: ["UA-68312423-1"]  
-    //   },
-    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-zopfli'
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "UA-68312423-1"
+        ],
+        gtagConfig: {
+          cookie_domain: "auto"
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -45,3 +51,4 @@ module.exports = {
     // `gatsby-plugin-offline`,
   ],
 }
+
